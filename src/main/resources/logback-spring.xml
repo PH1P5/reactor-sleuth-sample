@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false" scanPeriod="30 seconds" debug="false">
+
+
+	<springProperty name="stage" source="spring.profiles.active" defaultValue="not-found"/>
+
+	<!-- access logs -->
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<withJansi>true</withJansi>
+		<encoder>
+			<pattern>%highlight(%.-1level) %date{HH:mm:ss.SSS} [%30.30logger] %mdc{traceId} %msg%n%rEx{full,
+				org.springframework, sun.reflect, java.lang.reflect, rx.internal, com.fasterxml.jackson.databind.deser}
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- to write access logs to STDOUT locally you also have to add this as a system property, before running the main method
+	-Dreactor.netty.http.server.accessLogEnabled=true -->
+	<logger name="reactor.netty.http.server.AccessLog" level="INFO">
+
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="CONSOLE"/>
+	</root>
+
+	<!-- access logs -->
+
+</configuration>
