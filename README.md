@@ -1,5 +1,5 @@
 # reactor sleuth tracing error sample app
-This sample application reproduces not working log tracing with sleuth and project reactor
+This sample application reproduces not working log tracing with sleuth and project reactor Flux publisher.
 
 ## run with the following configuration enabled to see access logs
 
